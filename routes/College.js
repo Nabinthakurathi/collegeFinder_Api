@@ -1,23 +1,23 @@
 const express = require('express');
 const router =express.Router();
-const items = require('../models/item')
+const College = require('../models/college')
 const auth = require('../auth');
 
 router.post('/create',(req,res,next)=>{
-    items.create({
-        itemname:req.body.itemname,
-        price:req.body.price,
+    College.create({
+        CollegeName:req.body.CollegeName,
+        Location:req.body.Location,
         detail:req.body.detail,
         image:req.body.image
     }).then((callbacks)=>{
-        res.json( {status:"item created successfully",callback:callbacks});
+        res.json( {status:"College created successfully",callback:callbacks});
         console.log(callbacks);
     }).catch(next);
 
 });
 
 router.get('/all',(req,res,next)=>{
-   items.find({})
+   College.find({})
    .then((callbacks)=>{
        res.json(callbacks);
    }).catch(next)

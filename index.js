@@ -7,9 +7,9 @@ const uploadRouter = require('./routes/upload');
 const auth = require('./auth');
 const cors = require('cors');
 const bannerImages = require('./routes/bannerImages');
-const itemsRouter = require('./routes/items');
+const CollegeRouter = require('./routes/College');
 // const WineRoute = require('./routes/Wines');
-// const BeerRoute = require('./routes/Beers');
+const PlusRoute = require('./routes/plus');
 // const drinkRoute = require('./routes/HardDrinks');
 // const cartRoute = require('./routes/carts');
 const router = express.Router();
@@ -30,9 +30,9 @@ mongoose.connect(process.env.URL, { useNewUrlParser: true, useUnifiedTopology: t
 
 app.use('/users', userRouter);
 app.use('/upload', uploadRouter);
-app.use('/item',itemsRouter);
+app.use('/item',CollegeRouter);
 // app.use('/Wine',WineRoute);
-// app.use('/Beer',BeerRoute);
+ app.use('/Plus',PlusRoute);
 // app.use('/cartL',cartRoute);
 // app.use('/harddrink',drinkRoute);
 app.use('/banner',bannerImages);
